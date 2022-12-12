@@ -1,6 +1,7 @@
 package com.nicolo.entities;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -31,10 +32,13 @@ public class Consegna {
 	@JoinColumn(name = "sacco_id")
 	private Sacco sacco;
 	
-	private LocalDateTime assegnato;
-	@Column(columnDefinition = "DATE")
+	@Column(columnDefinition = "DATE", name = "consegnato_data")
 	@DateTimeFormat(iso = ISO.DATE)
-	private LocalDateTime consegnato;
+	private LocalDate consegnatoData;
+	
+	@Column(columnDefinition = "TIME", name = "consegnato_ora")
+	@DateTimeFormat(iso = ISO.TIME)
+	private LocalTime consegnatoOra;
 	
 	@Column(columnDefinition = "int default 0")
 	private int annullato; // 0 = no (default) | 1 = si
@@ -55,20 +59,20 @@ public class Consegna {
 		this.utente = utente;
 	}
 
-	public LocalDateTime getAssegnato() {
-		return assegnato;
+	public LocalDate getConsegnatoData() {
+		return consegnatoData;
 	}
 
-	public void setAssegnato(LocalDateTime assegnato) {
-		this.assegnato = assegnato;
+	public void setConsegnatoData(LocalDate consegnatoData) {
+		this.consegnatoData = consegnatoData;
 	}
 
-	public LocalDateTime getConsegnato() {
-		return consegnato;
+	public LocalTime getConsegnatoOra() {
+		return consegnatoOra;
 	}
 
-	public void setConsegnato(LocalDateTime consegnato) {
-		this.consegnato = consegnato;
+	public void setConsegnatoOra(LocalTime consegnatoOra) {
+		this.consegnatoOra = consegnatoOra;
 	}
 
 	public int getAnnullato() {
@@ -89,8 +93,8 @@ public class Consegna {
 
 	@Override
 	public String toString() {
-		return "Consegna [id=" + id + ", utente=" + utente + ", sacco=" + sacco + ", assegnato=" + assegnato
-				+ ", consegnato=" + consegnato + ", annullato=" + annullato + "]";
+		return "Consegna [id=" + id + ", utente=" + utente + ", sacco=" + sacco + ", consegnatoData=" + consegnatoData
+				+ ", consegnatoOra=" + consegnatoOra + ", annullato=" + annullato + "]";
 	}
 	
 }

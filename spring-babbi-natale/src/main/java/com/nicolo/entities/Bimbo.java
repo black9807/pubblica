@@ -1,7 +1,11 @@
 package com.nicolo.entities;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -42,7 +46,13 @@ public class Bimbo {
 	@JoinColumn(name = "sacco_id")
 	private Sacco sacco;
 	
-	private LocalTime consegnato;
+	@Column(columnDefinition = "DATE", name = "consegnato_data")
+	@DateTimeFormat(iso = ISO.DATE)
+	private LocalDate consegnatoData;
+	
+	@Column(columnDefinition = "TIME", name = "consegnato_ora")
+	@DateTimeFormat(iso = ISO.TIME)
+	private LocalTime consegnatoOra;
 	
 	@Column(columnDefinition = "int default 0")
 	private int annullato; // 0 = no (default) | 1 = si
@@ -79,12 +89,20 @@ public class Bimbo {
 		this.sacco = sacco;
 	}
 
-	public LocalTime getConsegnato() {
-		return consegnato;
+	public LocalDate getConsegnatoData() {
+		return consegnatoData;
 	}
 
-	public void setConsegnato(LocalTime consegnato) {
-		this.consegnato = consegnato;
+	public void setConsegnatoData(LocalDate consegnatoData) {
+		this.consegnatoData = consegnatoData;
+	}
+
+	public LocalTime getConsegnatoOra() {
+		return consegnatoOra;
+	}
+
+	public void setConsegnatoOra(LocalTime consegnatoOra) {
+		this.consegnatoOra = consegnatoOra;
 	}
 
 	public int getAnnullato() {
@@ -106,7 +124,8 @@ public class Bimbo {
 	@Override
 	public String toString() {
 		return "Bimbo [id=" + id + ", nome=" + nome + ", indirizzo=" + indirizzo + ", doni=" + doni + ", sacco=" + sacco
-				+ ", consegnato=" + consegnato + ", annullato=" + annullato + "]";
+				+ ", consegnatoData=" + consegnatoData + ", consegnatoOra=" + consegnatoOra + ", annullato=" + annullato
+				+ "]";
 	}
 	
 }
