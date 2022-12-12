@@ -1,0 +1,13 @@
+package com.nicolo;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class SpringBabbiNataleApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
