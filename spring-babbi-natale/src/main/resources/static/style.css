@@ -1,0 +1,33 @@
+.wrapper-form{
+    max-width: 60% !important;
+}
+.btn-custom{
+    padding: .275rem 2rem !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:768px) {
+    .wrapper-form{
+        max-width: 30% !important;
+    }
+    
+}
