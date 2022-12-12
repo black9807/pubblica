@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.nicolo.entities.Bimbo;
 
 @Repository
-public interface BimboDAO extends JpaRepository<Bimbo, Integer> {
+public interface BimbiDAO extends JpaRepository<Bimbo, Integer> {
 
 }

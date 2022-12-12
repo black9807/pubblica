@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.nicolo.entities.Dono;
 
 @Repository
-public interface DonoDAO extends JpaRepository<Dono, Integer> {
+public interface DoniDAO extends JpaRepository<Dono, Integer> {
 
 }

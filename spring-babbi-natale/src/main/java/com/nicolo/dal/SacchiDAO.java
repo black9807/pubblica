@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.nicolo.entities.Sacco;
 
 @Repository
-public interface SaccoDAO extends JpaRepository<Sacco, Integer> {
+public interface SacchiDAO extends JpaRepository<Sacco, Integer> {
 
 }
