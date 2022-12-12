@@ -2,6 +2,8 @@ package com.nicolo.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -20,6 +22,7 @@ public class Dono {
 	private String nome;
 	private int disponibilita;
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy = "dono", fetch = FetchType.LAZY)
 	private List<Bimbo> bimbi;
 

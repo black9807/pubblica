@@ -1,6 +1,9 @@
 package com.nicolo.entities;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,8 +31,10 @@ public class Consegna {
 	@JoinColumn(name = "sacco_id")
 	private Sacco sacco;
 	
-	private LocalTime assegnato;
-	private LocalTime consegnato;
+	private LocalDateTime assegnato;
+	@Column(columnDefinition = "DATE")
+	@DateTimeFormat(iso = ISO.DATE)
+	private LocalDateTime consegnato;
 	
 	@Column(columnDefinition = "int default 0")
 	private int annullato; // 0 = no (default) | 1 = si
@@ -50,19 +55,19 @@ public class Consegna {
 		this.utente = utente;
 	}
 
-	public LocalTime getAssegnato() {
+	public LocalDateTime getAssegnato() {
 		return assegnato;
 	}
 
-	public void setAssegnato(LocalTime assegnato) {
+	public void setAssegnato(LocalDateTime assegnato) {
 		this.assegnato = assegnato;
 	}
 
-	public LocalTime getConsegnato() {
+	public LocalDateTime getConsegnato() {
 		return consegnato;
 	}
 
-	public void setConsegnato(LocalTime consegnato) {
+	public void setConsegnato(LocalDateTime consegnato) {
 		this.consegnato = consegnato;
 	}
 

@@ -3,6 +3,8 @@ package com.nicolo.entities;
 import java.time.LocalTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -24,6 +26,7 @@ public class Bimbo {
 	private String nome;
 	private String indirizzo;
 	
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinTable(name = "bimbi_doni",
 			joinColumns = {

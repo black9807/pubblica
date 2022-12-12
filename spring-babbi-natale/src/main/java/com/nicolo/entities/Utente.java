@@ -2,6 +2,8 @@ package com.nicolo.entities;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -27,6 +29,7 @@ public class Utente {
 	private String zona;
 	private String tipo;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "utente", fetch = FetchType.LAZY)
 	private Set<Consegna> consegne;
 	
