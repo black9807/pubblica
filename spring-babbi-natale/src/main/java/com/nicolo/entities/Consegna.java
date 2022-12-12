@@ -25,12 +25,15 @@ public class Consegna {
 	private int id;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "sacco_id")
+	private Sacco sacco;
+	
+	private Bimbo bimbo;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "utente_id")
 	private Utente utente;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "sacco_id")
-	private Sacco sacco;
-
+	
 	
 }
