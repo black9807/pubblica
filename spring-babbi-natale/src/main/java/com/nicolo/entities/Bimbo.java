@@ -1,6 +1,7 @@
 package com.nicolo.entities;
 
 import java.time.LocalTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -23,8 +25,15 @@ public class Bimbo {
 	private String indirizzo;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "dono_id")
-	private Dono dono;
+	@JoinTable(name = "bimbi_doni",
+			joinColumns = {
+					@JoinColumn(name = "bimbo_id", referencedColumnName = "id",
+							nullable = false, updatable = false)},
+			inverseJoinColumns = {
+					@JoinColumn(name = "bimbo_id", referencedColumnName = "id",
+							nullable = false, updatable = false)}
+	)
+	private List<Dono> doni;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "sacco_id")
@@ -59,14 +68,6 @@ public class Bimbo {
 		this.indirizzo = indirizzo;
 	}
 
-	public Dono getDono() {
-		return dono;
-	}
-
-	public void setDono(Dono dono) {
-		this.dono = dono;
-	}
-
 	public Sacco getSacco() {
 		return sacco;
 	}
@@ -91,9 +92,17 @@ public class Bimbo {
 		this.annullato = annullato;
 	}
 
+	public List<Dono> getDoni() {
+		return doni;
+	}
+
+	public void setDoni(List<Dono> doni) {
+		this.doni = doni;
+	}
+
 	@Override
 	public String toString() {
-		return "Bimbo [id=" + id + ", nome=" + nome + ", indirizzo=" + indirizzo + ", dono=" + dono + ", sacco=" + sacco
+		return "Bimbo [id=" + id + ", nome=" + nome + ", indirizzo=" + indirizzo + ", doni=" + doni + ", sacco=" + sacco
 				+ ", consegnato=" + consegnato + ", annullato=" + annullato + "]";
 	}
 	

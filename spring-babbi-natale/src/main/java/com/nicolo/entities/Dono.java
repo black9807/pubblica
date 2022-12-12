@@ -7,7 +7,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,7 +20,7 @@ public class Dono {
 	private String nome;
 	private int disponibilita;
 	
-	@OneToMany(mappedBy = "dono", fetch = FetchType.LAZY)
+	@ManyToMany(mappedBy = "dono", fetch = FetchType.LAZY)
 	private List<Bimbo> bimbi;
 
 	public int getId() {

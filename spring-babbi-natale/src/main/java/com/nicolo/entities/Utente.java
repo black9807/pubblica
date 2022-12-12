@@ -1,6 +1,6 @@
 package com.nicolo.entities;
 
-import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,56 +28,72 @@ public class Utente {
 	private String tipo;
 	
 	@OneToMany(mappedBy = "utente", fetch = FetchType.LAZY)
-	private List<Consegna> consegne;
+	private Set<Consegna> consegne;
 	
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getUsername() {
 		return username;
 	}
+	
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
 	public String getPassword() {
 		return password;
 	}
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 	public String getNome() {
 		return nome;
 	}
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	public String getMezzoTrasporto() {
 		return mezzoTrasporto;
 	}
+	
 	public void setMezzoTrasporto(String mezzoTrasporto) {
 		this.mezzoTrasporto = mezzoTrasporto;
 	}
+	
 	public String getZona() {
 		return zona;
 	}
+	
 	public void setZona(String zona) {
 		this.zona = zona;
 	}
+	
 	public String getTipo() {
 		return tipo;
 	}
+	
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public List<Consegna> getConsegne() {
+	
+	public Set<Consegna> getConsegne() {
 		return consegne;
 	}
-	public void setConsegne(List<Consegna> consegne) {
+	
+	public void setConsegne(Set<Consegna> consegne) {
 		this.consegne = consegne;
 	}
+	
 	@Override
 	public String toString() {
 		return "Utente [id=" + id + ", username=" + username + ", password=" + password + ", nome=" + nome
