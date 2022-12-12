@@ -23,7 +23,7 @@ public class Dono {
 	private int disponibilita;
 	
 	@JsonIgnore
-	@ManyToMany(mappedBy = "dono", fetch = FetchType.LAZY)
+	@ManyToMany(mappedBy = "doni", fetch = FetchType.LAZY)
 	private List<Bimbo> bimbi;
 
 	public int getId() {
