@@ -29,11 +29,6 @@ public class Consegna {
 	private Sacco sacco;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "dono_id")
-	private Dono dono;
-	private int quantita;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "bimbo_id")
 	private Bimbo bimbo;
 	
@@ -61,22 +56,6 @@ public class Consegna {
 	
 	public void setSacco(Sacco sacco) {
 		this.sacco = sacco;
-	}
-	
-	public Dono getDono() {
-		return dono;
-	}
-	
-	public void setDono(Dono dono) {
-		this.dono = dono;
-	}
-	
-	public int getQuantita() {
-		return quantita;
-	}
-	
-	public void setQuantita(int quantita) {
-		this.quantita = quantita;
 	}
 	
 	public Bimbo getBimbo() {
@@ -110,12 +89,11 @@ public class Consegna {
 	public void setAnnullato(int annullato) {
 		this.annullato = annullato;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Consegna [id=" + id + ", sacco=" + sacco + ", dono=" + dono + ", quantita=" + quantita + ", bimbo="
-				+ bimbo + ", consegnatoData=" + consegnatoData + ", consegnatoOra=" + consegnatoOra + ", annullato="
-				+ annullato + "]";
+		return "Consegna [id=" + id + ", sacco=" + sacco + ", bimbo=" + bimbo + ", consegnatoData=" + consegnatoData
+				+ ", consegnatoOra=" + consegnatoOra + ", annullato=" + annullato + "]";
 	}
 	
 }
