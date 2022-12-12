@@ -15,7 +15,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -35,14 +35,21 @@ public class Sacco {
 	@DateTimeFormat(iso = ISO.TIME)
 	private LocalTime assegnatoOra;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "sacco", fetch = FetchType.LAZY)
-	private List<Consegna> consegne;
-
-	@JsonIgnore
-	@OneToMany(mappedBy = "sacco", fetch = FetchType.LAZY)
-	private List<Bimbo> bimbi;
+	@Column(columnDefinition = "DATE", name = "consegnato_data")
+	@DateTimeFormat(iso = ISO.DATE)
+	private LocalDate consegnatoData;
 	
+	@Column(columnDefinition = "TIME", name = "consegnato_ora")
+	@DateTimeFormat(iso = ISO.TIME)
+	private LocalTime consegnatoOra;
+	
+	@Column(columnDefinition = "int default 0")
+	private int annullato; // 0 = no (default) | 1 = si
+	
+	@JsonIgnore
+	@ManyToMany(mappedBy = "sacchi", fetch = FetchType.LAZY)
+	private List<Utente> utenti;
+
 	public int getId() {
 		return id;
 	}
@@ -57,22 +64,6 @@ public class Sacco {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public List<Consegna> getConsegne() {
-		return consegne;
-	}
-
-	public void setConsegne(List<Consegna> consegne) {
-		this.consegne = consegne;
-	}
-
-	public List<Bimbo> getBimbi() {
-		return bimbi;
-	}
-
-	public void setBimbi(List<Bimbo> bimbi) {
-		this.bimbi = bimbi;
 	}
 
 	public LocalDate getAssegnatoData() {
@@ -91,10 +82,43 @@ public class Sacco {
 		this.assegnatoOra = assegnatoOra;
 	}
 
+	public LocalDate getConsegnatoData() {
+		return consegnatoData;
+	}
+
+	public void setConsegnatoData(LocalDate consegnatoData) {
+		this.consegnatoData = consegnatoData;
+	}
+
+	public LocalTime getConsegnatoOra() {
+		return consegnatoOra;
+	}
+
+	public void setConsegnatoOra(LocalTime consegnatoOra) {
+		this.consegnatoOra = consegnatoOra;
+	}
+
+	public int getAnnullato() {
+		return annullato;
+	}
+
+	public void setAnnullato(int annullato) {
+		this.annullato = annullato;
+	}
+
+	public List<Utente> getUtenti() {
+		return utenti;
+	}
+
+	public void setUtenti(List<Utente> utenti) {
+		this.utenti = utenti;
+	}
+
 	@Override
 	public String toString() {
 		return "Sacco [id=" + id + ", nome=" + nome + ", assegnatoData=" + assegnatoData + ", assegnatoOra="
-				+ assegnatoOra + ", consegne=" + consegne + ", bimbi=" + bimbi + "]";
+				+ assegnatoOra + ", consegnatoData=" + consegnatoData + ", consegnatoOra=" + consegnatoOra
+				+ ", annullato=" + annullato + ", utenti=" + utenti + "]";
 	}
 	
 }
