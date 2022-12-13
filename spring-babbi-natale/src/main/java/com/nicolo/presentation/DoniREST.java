@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,6 +26,11 @@ public class DoniREST {
 	@GetMapping("doni/{id}")
 	public Object stampaDono(int id) {
 		return dao.findById(id);
+	}
+	
+	@PostMapping("doni")
+	public Dono addDono(Dono d) {
+		return dao.save(d);
 	}
 	
 }
