@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +24,7 @@ public class ConsegneREST {
 	}
 	
 	@GetMapping("consegne/{id}")
-	public Object stampaConsegna(int id) {
+	public Object stampaConsegna(@PathVariable("id") int id) {
 		return dao.findById(id);
 	}
 	
