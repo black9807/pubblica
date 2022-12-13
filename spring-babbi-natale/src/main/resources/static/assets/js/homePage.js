@@ -8,7 +8,7 @@ var tipoUtente = document.querySelector('#tipo-utente').getAttribute('value');
 
 /* ---------------------------- END VARs & CONSTs --------------------------- */
 
-export function cardNameValue(cardTitle){
+function cardNameValue(cardTitle){
 cardTitle.textContent=sessionStorage.getItem('username');
 }
 

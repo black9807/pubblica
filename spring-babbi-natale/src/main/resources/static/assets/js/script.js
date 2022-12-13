@@ -19,5 +19,5 @@ const formLogin = document.querySelector('#login');
 
 formLogin.addEventListener('submit',()=>{
 
-    sessionStorage.setItem('username',document.querySelector('#inputPassword').value)
+    sessionStorage.setItem('username',document.querySelector('#username').value)
 })

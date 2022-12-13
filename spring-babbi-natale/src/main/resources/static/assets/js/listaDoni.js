@@ -1,10 +1,17 @@
-import{cardNameValue} from "../js/homePage";
-
 const cardTitle = document.querySelector('.card-title');
+
 const row = document.querySelector('#dono-info');
+
 const url = "http://localhost:9013/api/test";
 
-cardNameValue(cardTitle);
+
+
+
+function cardNameValue(){
+    cardTitle.textContent=sessionStorage.getItem('username');
+}
+
+cardNameValue();
 
 ()=>{
     fetch(url)

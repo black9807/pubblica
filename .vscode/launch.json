@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringBabbiNataleApplication<spring-babbi-natale>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.nicolo.SpringBabbiNataleApplication",
+            "projectName": "spring-babbi-natale",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
