@@ -1,3 +1,14 @@
+@import url("index.css");
+
+a{
+    padding: .575rem 1rem !important;
+}
+
+.container-nav{
+    margin-top: 10rem !important;
+}
+
 .card-welcome{
     max-width: 50%;
 }
+

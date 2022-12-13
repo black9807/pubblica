@@ -9,29 +9,38 @@
   </head>
   <body>
     <header>
-        <h1>Benvenuto</h1>
+        <div class="container-fluid p-3">
+          <h1 class="ms-5">Benvenuto</h1>
+        </div>
     </header>
 
     <main>
-        <div class="card-welcome">
-            <div class="card text-bg-success mb-3">
-                <div class="card-body">
-                  <p class="card-title fs-2"></p>
-                  <p class="card-text"></p>
+
+        <div class="d-flex flex-column justify-content-evenly main-wrapper">
+
+          <div class="container">
+            <div class="card-welcome mx-auto text-center">
+                <div class="card text-bg-success mb-3">
+                    <div class="card-body">
+                      <p class="card-title fs-2 mb-3"></p>
+                      <p class="card-text"></p>
+                    </div>
                 </div>
             </div>
-        </div>
+          </div>
 
-        <div class="container">
-          <nav id="menu">
-            <ul class="list-unstyled d-flex align-items-center justify-content-around">
-              <li><a class="text-decoration-none btn btn-danger" href="">lista doni</a></li>
-              <li><a class="text-decoration-none btn btn-danger" href="">lista babbi</a></li>
-              <li><a class="text-decoration-none btn btn-danger" href="">aggiungi dono</a></li>
-              <li><a class="text-decoration-none btn btn-danger" href="">assegna babbi</a></li>
-              <li><a class="text-decoration-none btn btn-danger" href="">report</a></li>
-            </ul>
-          </nav>
+          <div class="container container-nav">
+            <nav id="menu">
+              <ul class="list-unstyled d-flex align-items-center justify-content-evenly" id="list-btn">
+                <li><a class="text-decoration-none btn btn-danger" id="btn-admin" href="" target="_blank">lista doni</a></li>
+                <li><a class="text-decoration-none btn btn-danger" id="btn-admin" href="" target="_blank">lista babbi</a></li>
+                <li><a class="text-decoration-none btn btn-danger" id="btn-admin" href="" target="_blank">aggiungi dono</a></li>
+                <li><a class="text-decoration-none btn btn-danger" id="btn-admin" href="" target="_blank">assegna babbi</a></li>
+                <li><a class="text-decoration-none btn btn-danger" href="" target="_blank">report</a></li>
+                <li><a hidden class="text-decoration-none btn btn-danger" id="btn-santa" href="" target="_blank">consegne</a></li>
+              </ul>
+            </nav>
+          </div>
         </div>
 
     </main>

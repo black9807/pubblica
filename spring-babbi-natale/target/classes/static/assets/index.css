@@ -1,15 +1,36 @@
-.wrapper-form{
-    max-width: 60% !important;
+body{
+    background: url("./img/bg-natalizio.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
 }
-.btn-custom{
+
+h1{
+    color: #ffffff;
+}
+
+body{
+    height: 100vh !important;
+}
+
+.wrapper-form {
+    max-width: 60% !important;
+    background-color: #f0f0f0c6;
+    backdrop-filter: blur(10px) !important;
+
+    border: 1px solid rgba(0, 0, 0, 0.207);
+    border-radius: 8px;
+}
+
+.btn-custom {
     padding: .275rem 2rem !important;
 }
 
 
 
 @media screen and (min-width:768px) {
-    .wrapper-form{
+    .wrapper-form {
         max-width: 30% !important;
     }
-    
+
 }
