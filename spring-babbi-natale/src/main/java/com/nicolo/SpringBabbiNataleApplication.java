@@ -19,24 +19,24 @@ public class SpringBabbiNataleApplication {
 		SpringApplication.run(SpringBabbiNataleApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner add(BimbiDAO bDao){
-		
-		List<Dono> d1 = new ArrayList<>();
-		d1.add(new Dono());
-		d1.get(0).setDisponibilita(3);
-		d1.get(0).setNome("peluche");
-		
-		return a -> {
-		Bimbo b = new Bimbo();
-		b.setId(1);
-		b.setNome("Niccolo");
-		b.setIndirizzo("via Mar Cinese,122");
-		b.setDoni(d1);	
-		
-		bDao.save(b);
-		
-		};
-	}
+//	@Bean
+//	public CommandLineRunner add(BimbiDAO bDao){
+//		
+//		List<Dono> d1 = new ArrayList<>();
+//		d1.add(new Dono());
+//		d1.get(0).setDisponibilita(3);
+//		d1.get(0).setNome("peluche");
+//		
+//		return a -> {
+//		Bimbo b = new Bimbo();
+//		b.setId(1);
+//		b.setNome("Niccolo");
+//		b.setIndirizzo("via Mar Cinese,122");
+//		b.setDoni(d1);	
+//		
+//		bDao.save(b);
+//		
+//		};
+//	}
 
 }
