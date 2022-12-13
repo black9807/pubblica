@@ -8,8 +8,9 @@ var tipoUtente = document.querySelector('#tipo-utente').getAttribute('value');
 
 /* ---------------------------- END VARs & CONSTs --------------------------- */
 
-function cardNameValue(cardTitle){
-cardTitle.textContent=sessionStorage.getItem('username');
+function cardNameValue(){
+    cardTitle.textContent = sessionStorage.getItem('username');
+    // console.log(sessionStorage.getItem('username'));
 }
 
 function changeCard(){
@@ -47,4 +48,5 @@ function changeClass(){
 window.addEventListener('load',()=>{
     changeCard();
     changeNav();  
+    cardNameValue();
 })
