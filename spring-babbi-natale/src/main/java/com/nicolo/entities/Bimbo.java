@@ -25,6 +25,7 @@ public class Bimbo {
 	private String nome;
 	private String indirizzo;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "bimbo", fetch = FetchType.LAZY)
 	private List<Consegna> consegne;
 	
