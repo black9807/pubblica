@@ -39,4 +39,13 @@ public class UtentiMVC {
 	
 	@GetMapping("loginCheck")
 	public String redirect() { return "redirect:/"; }
+	
+	@GetMapping("listaBabbi")
+	public String listaBabbi(HttpSession session) {
+		
+		if (session.getAttribute("loggedUser") == null)
+			return "redirect:/";
+		
+		return "listaBabbi";
+	}
 }

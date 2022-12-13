@@ -28,4 +28,9 @@ public class UtentiREST {
 		return dao.findById(id);
 	}
 	
+	@GetMapping("utentiByTipo/{tipo}")
+	public List<Utente> utentiByTipo(@PathVariable("tipo") String tipo) {
+		return dao.findByTipo(tipo);
+	}
+	
 }
