@@ -29,7 +29,6 @@ public class Bimbo {
 	@OneToMany(mappedBy = "bimbo", fetch = FetchType.LAZY)
 	private List<Consegna> consegne;
 	
-	@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "bimbi_doni",
 	joinColumns = {
