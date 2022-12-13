@@ -1,11 +1,5 @@
 const formLogin = document.querySelector('#login');
 
-function Utente(username,psw){
-    this.username = username;
-    this.password = psw;
-}
-
-
 (() => {
     'use strict'
     const forms = document.querySelectorAll('#login')
@@ -22,3 +16,8 @@ function Utente(username,psw){
       }, false)
     })
   })()
+
+formLogin.addEventListener('submit',()=>{
+
+    sessionStorage.setItem('username',document.querySelector('#inputPassword').value)
+})

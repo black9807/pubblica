@@ -4,13 +4,13 @@ const buttonsAdmin = document.querySelectorAll('#btn-admin');
 const buttonSanta = document.querySelector('#btn-santa');
 const ul = document.querySelector('#list-btn');
 
-var nomeUtente = document.querySelector('#username-utente');
 var tipoUtente = document.querySelector('#tipo-utente').getAttribute('value');
 
 /* ---------------------------- END VARs & CONSTs --------------------------- */
 
-cardTitle.textContent=nomeUtente.getAttribute('value');
-
+export function cardNameValue(cardTitle){
+cardTitle.textContent=sessionStorage.getItem('username');
+}
 
 function changeCard(){
     if(tipoUtente == 'admin'){
