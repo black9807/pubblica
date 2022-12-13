@@ -23,9 +23,8 @@ public class UtentiMVC {
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("inputPassword");
-		
 		Utente utente = dao.findByUsernameEqualsAndPasswordEquals(username, password);
-		
+		System.out.println(utente);
 		if (utente != null) {
 			
 			session.setAttribute("loggedUser", utente);
