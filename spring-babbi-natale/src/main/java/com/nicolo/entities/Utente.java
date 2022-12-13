@@ -107,14 +107,14 @@ public class Utente {
 		this.sacchi = sacchi;
 	}
 
-	@Override
-	public String toString() {
-		return "Utente [id=" + id + ", username=" + username + ", password=" + password + ", nome=" + nome
-				+ ", mezzoTrasporto=" + mezzoTrasporto + ", zona=" + zona + ", tipo=" + tipo + ", sacchi=" + sacchi
-				+ ", getId()=" + getId() + ", getUsername()=" + getUsername() + ", getPassword()=" + getPassword()
-				+ ", getNome()=" + getNome() + ", getMezzoTrasporto()=" + getMezzoTrasporto() + ", getZona()="
-				+ getZona() + ", getTipo()=" + getTipo() + ", getSacchi()=" + getSacchi() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
-	}
+	// @Override
+	// public String toString() {
+	// 	return "Utente [id=" + id + ", username=" + username + ", password=" + password + ", nome=" + nome
+	// 			+ ", mezzoTrasporto=" + mezzoTrasporto + ", zona=" + zona + ", tipo=" + tipo + ", sacchi=" + sacchi
+	// 			+ ", getId()=" + getId() + ", getUsername()=" + getUsername() + ", getPassword()=" + getPassword()
+	// 			+ ", getNome()=" + getNome() + ", getMezzoTrasporto()=" + getMezzoTrasporto() + ", getZona()="
+	// 			+ getZona() + ", getTipo()=" + getTipo() + ", getSacchi()=" + getSacchi() + ", getClass()=" + getClass()
+	// 			+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	// }
 	
 }
