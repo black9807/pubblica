@@ -56,4 +56,10 @@ public class SacchiMVC {
 		return "addDoni";
 	}
 	
+	@GetMapping("changeDoni")
+	public String redirect(HttpSession session) {
+		
+		return addDoni(session);
+	}
+	
 }
