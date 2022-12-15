@@ -3,6 +3,7 @@ package com.nicolo.presentation;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -89,14 +90,14 @@ public class SacchiMVC {
 		Utente utente = uDAO.findById(babboId).get();
 		Sacco sacco = dao.findById(saccoId).get();
 		
-		List<Utente> utenti = sacco.getUtenti();
-		utenti.add(utente);
+		Set<Sacco> sacchi = utente.getSacchi();
+		sacchi.add(sacco);
 		
-		sacco.setUtenti(utenti);
+		utente.setSacchi(sacchi);
 		
 		sacco.setAssegnatoData(LocalDate.now());
 		sacco.setAssegnatoOra(LocalTime.now());
-		
+//		System.out.println(sacco);
 		dao.save(sacco);
 		
 		return "addDoni";

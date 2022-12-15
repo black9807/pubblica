@@ -56,6 +56,11 @@ function fillTable(){
             var td1 = document.createElement('td');
             var nome = element.nome;
             td1.textContent = nome;
+            var id = document.createElement('input');
+            id.setAttribute('value', element.id);
+            id.setAttribute('type', 'hidden');
+            id.setAttribute('name', 'babboId')
+            td1.appendChild(id);
             row.appendChild(td1);
             var td3 = document.createElement('td');
             
