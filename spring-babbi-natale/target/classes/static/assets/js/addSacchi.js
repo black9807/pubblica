@@ -11,10 +11,8 @@ function cardNameValue(){
     cardTitle.textContent=sessionStorage.getItem('username');
 }
 
-function newFunction(row,td3){
+function newFunction(row){
 
-    var td3 = document.createElement('tr');
-    td3.textContent = 'ciao';
     var td2 = document.createElement('tr');
     td2.classList.add('d-flex','justify-content-between')
 
@@ -27,9 +25,12 @@ function newFunction(row,td3){
     button.classList.add('btn', 'btn-light');
     button.textContent = 'Apply Changes';
 
+
+
     fetch(urlSacchi).then(data=>{return data.json()})
     .then(resp=>{
         resp.forEach(element => {
+            console.log(element.consegnatoOra);
             var option = document.createElement('option');
             var nome = element.nome;
             var id = element.id;
@@ -42,10 +43,12 @@ function newFunction(row,td3){
             td2.appendChild(select);
             td2.appendChild(button);
             row.appendChild(td2);
+
             
         })
     })
     
+
 }
 
 function fillTable(){
@@ -56,7 +59,6 @@ function fillTable(){
         resp.forEach(element => {
             var row = document.createElement('tr');
             var td1 = document.createElement('td');
-            var td3 = document.createElement('td');
             var nome = element.nome;
             td1.textContent = nome;
             var id = document.createElement('input');
@@ -67,8 +69,7 @@ function fillTable(){
             row.appendChild(td1);
             
             
-            newFunction(row,td3);
-            row.appendChild(td3)
+            newFunction(row);
             body.appendChild(row)
         });
         
