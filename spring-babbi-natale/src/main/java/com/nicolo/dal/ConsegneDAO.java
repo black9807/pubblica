@@ -7,5 +7,5 @@ import com.nicolo.entities.Consegna;
 
 @Repository
 public interface ConsegneDAO extends JpaRepository<Consegna, Integer> {
-
+	
 }

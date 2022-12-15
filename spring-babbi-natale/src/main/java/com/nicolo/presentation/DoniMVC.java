@@ -1,14 +1,37 @@
 package com.nicolo.presentation;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.nicolo.dal.BimbiDAO;
+import com.nicolo.dal.ConsegneDAO;
+import com.nicolo.dal.DoniDAO;
+import com.nicolo.dal.SacchiDAO;
+import com.nicolo.entities.Bimbo;
+import com.nicolo.entities.Consegna;
+import com.nicolo.entities.Sacco;
 
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("doni")
 public class DoniMVC {
+	
+	@Autowired
+	DoniDAO dao;
+	
+	@Autowired
+	ConsegneDAO cDAO;
+	
+	@Autowired
+	BimbiDAO bDAO;
+	
+	@Autowired
+	SacchiDAO sDAO;
 	
 	@GetMapping("listaDoni")
 	public String listaDoni(HttpSession session) {
@@ -19,6 +42,19 @@ public class DoniMVC {
 		return "listaDoni";	
 	}
 	
-//	@postma
+	@PostMapping("changeDoni")
+	public String mauro(@RequestParam("bimboId") int bimboId, @RequestParam("saccoId") int saccoId, HttpSession session) {
+		
+		Bimbo bimbo = bDAO.findById(bimboId).get();
+		Sacco sacco = sDAO.findById(saccoId).get();
+		
+		Consegna consegna = new Consegna();
+		consegna.setBimbo(bimbo);
+		consegna.setSacco(sacco);
+		
+		cDAO.save(consegna);
+		
+		return listaDoni(session);
+	}
 	
 }
