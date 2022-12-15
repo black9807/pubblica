@@ -30,7 +30,7 @@ cardNameValue();
                 var td2 = document.createElement('td');
                 td2.textContent = element.nome;
                 var td3 = document.createElement('td');
-                td3.textContent = element.consegnato_ora;
+                td3.textContent = element.consegnatoOra;
             
                 row.appendChild(td);
                 row.appendChild(td2);
