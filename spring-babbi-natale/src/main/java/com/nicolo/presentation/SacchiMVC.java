@@ -62,4 +62,13 @@ public class SacchiMVC {
 		return addDoni(session);
 	}
 	
+	@GetMapping("addSacchi")
+	public String addSacchi(HttpSession session) {
+		
+		if (session.getAttribute("loggedUser") == null)
+			return "redirect:/";
+		
+		return "addSacchi";
+	}
+	
 }
