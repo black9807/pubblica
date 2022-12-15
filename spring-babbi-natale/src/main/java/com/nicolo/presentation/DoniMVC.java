@@ -24,15 +24,6 @@ public class DoniMVC {
 	@Autowired
 	DoniDAO dao;
 	
-	@Autowired
-	ConsegneDAO cDAO;
-	
-	@Autowired
-	BimbiDAO bDAO;
-	
-	@Autowired
-	SacchiDAO sDAO;
-	
 	@GetMapping("listaDoni")
 	public String listaDoni(HttpSession session) {
 		
@@ -40,21 +31,6 @@ public class DoniMVC {
 			return "redirect:/";
 		
 		return "listaDoni";	
-	}
-	
-	@PostMapping("changeDoni")
-	public String mauro(@RequestParam("bimboId") int bimboId, @RequestParam("saccoId") int saccoId, HttpSession session) {
-		
-		Bimbo bimbo = bDAO.findById(bimboId).get();
-		Sacco sacco = sDAO.findById(saccoId).get();
-		
-		Consegna consegna = new Consegna();
-		consegna.setBimbo(bimbo);
-		consegna.setSacco(sacco);
-		
-		cDAO.save(consegna);
-		
-		return listaDoni(session);
 	}
 	
 }
