@@ -31,7 +31,7 @@ public class Utente {
 	private String zona;
 	private String tipo;
 	
-	@JsonIgnore
+	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "utenti_sacchi",
 			joinColumns = {

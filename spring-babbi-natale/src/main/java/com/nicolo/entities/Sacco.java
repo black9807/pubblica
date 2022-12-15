@@ -106,6 +106,7 @@ public class Sacco {
 		this.annullato = annullato;
 	}
 
+	@JsonIgnore
 	public List<Utente> getUtenti() {
 		return utenti;
 	}
