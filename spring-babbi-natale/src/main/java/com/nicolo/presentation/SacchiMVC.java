@@ -90,6 +90,11 @@ public class SacchiMVC {
 		Utente utente = uDAO.findById(babboId).get();
 		Sacco sacco = dao.findById(saccoId).get();
 		
+		List<Utente> utenti = sacco.getUtenti();
+		utenti.add(utente);
+		
+		sacco.setUtenti(utenti);
+		
 		Set<Sacco> sacchi = utente.getSacchi();
 		sacchi.add(sacco);
 		
@@ -100,7 +105,7 @@ public class SacchiMVC {
 //		System.out.println(sacco);
 		dao.save(sacco);
 		
-		return "addDoni";
+		return "addSacchi";
 	}
 	
 	@GetMapping("changeSacchi")
