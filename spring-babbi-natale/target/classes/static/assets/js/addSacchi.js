@@ -12,7 +12,6 @@ function cardNameValue(){
 }
 
 function newFunction(row,td3){
-     
 
     var td3 = document.createElement('tr');
     td3.textContent = 'ciao';
@@ -31,7 +30,6 @@ function newFunction(row,td3){
     fetch(urlSacchi).then(data=>{return data.json()})
     .then(resp=>{
         resp.forEach(element => {
-            td3.textContent= element.consegnato_ora;
             var option = document.createElement('option');
             var nome = element.nome;
             var id = element.id;
@@ -44,10 +42,10 @@ function newFunction(row,td3){
             td2.appendChild(select);
             td2.appendChild(button);
             row.appendChild(td2);
-
+            
         })
     })
-
+    
 }
 
 function fillTable(){
@@ -76,7 +74,7 @@ function fillTable(){
         
     })
     
-   
+    
 
 }
 
