@@ -19,4 +19,13 @@ public class ConsegneMVC {
 		return "report";
 	}
 	
+	@GetMapping("listaConsegne") 
+	public String listaConsegne(HttpSession session){
+		
+		if (session.getAttribute("loggedUser") == null)
+			return "redirect:/";
+		
+		return "addSacchi";
+	}
+	
 }
