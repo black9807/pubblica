@@ -35,6 +35,11 @@ function fillTable() {
         resp.forEach(element => {
             
             td1.textContent = element.nome;
+            var id = document.createElement('input');
+            id.setAttribute('value',element.id);
+            id.setAttribute('type','hidden');
+            id.setAttribute('name','bimboId')
+            td1.appendChild(id);
             
             element.doni.forEach(element => {
                 var nomeDono = element.nome;
