@@ -11,6 +11,41 @@ function cardNameValue(){
     cardTitle.textContent=sessionStorage.getItem('username');
 }
 
+function newFunction(row){
+
+    var td2 = document.createElement('tr');
+    td2.classList.add('d-flex','justify-content-between')
+
+    var select = document.createElement('select');
+    select.classList.add('form-select', 'w-50');
+    select.setAttribute('name', 'saccoId');
+
+    var button = document.createElement('button');
+    button.setAttribute('type', 'submit');
+    button.classList.add('btn', 'btn-light');
+    button.textContent = 'Apply Changes';
+
+    fetch(urlSacchi).then(data=>{return data.json()})
+    .then(resp=>{
+        resp.forEach(element => {
+            var option = document.createElement('option');
+            var nome = element.nome;
+            var id = element.id;
+
+            option.textContent = nome + "-" + id;
+            option.setAttribute('value', id);
+
+            select.appendChild(option);
+
+            td2.appendChild(select);
+            td2.appendChild(button);
+            row.appendChild(td2);
+
+        })
+    })
+
+}
+
 function fillTable(){
     
     fetch(urlBabbi)
@@ -22,10 +57,15 @@ function fillTable(){
             var nome = element.nome;
             td1.textContent = nome;
             row.appendChild(td1);
+            var td3 = document.createElement('td');
+            
+            
+            newFunction(row);
             body.appendChild(row)
         });
+        
     })
-
+    
    
 
 }
