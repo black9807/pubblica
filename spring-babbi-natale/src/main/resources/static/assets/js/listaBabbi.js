@@ -1,6 +1,6 @@
 const cardTitle = document.querySelector('.card-title');
 
-const row = document.querySelector('#babbo-info');
+const body = document.querySelector('#babbo-info');
 
 const url = "http://localhost:9013/api/utentiByTipo/utente";
 
@@ -18,6 +18,7 @@ cardNameValue();
     .then(data=>{return data.json()})
     .then(resp=>{
         resp.forEach(element => {
+            var row = document.createElement('tr');
             var td = document.createElement('td');
             td.textContent = element.nome;
             var td2 = document.createElement('td');
@@ -29,6 +30,8 @@ cardNameValue();
             row.appendChild(td2);
             row.appendChild(td3);
             
+            body.appendChild(row);
+
         });
 
 })

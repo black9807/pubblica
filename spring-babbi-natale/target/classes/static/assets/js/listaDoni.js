@@ -1,6 +1,6 @@
 const cardTitle = document.querySelector('.card-title');
 
-const row = document.querySelector('#dono-info');
+const body = document.querySelector('#dono-info');
 
 const url = "http://localhost:9013/api/doni";
 
@@ -18,6 +18,7 @@ cardNameValue();
     .then(data=>{return data.json()})
     .then(resp=>{
         resp.forEach(element => {
+            var row = document.createElement('tr');
             var td = document.createElement('td');
             td.textContent = element.nome;
             var td2 = document.createElement('td');
@@ -25,6 +26,10 @@ cardNameValue();
 
             row.appendChild(td);
             row.appendChild(td2);
+
+            body.appendChild(row);
+
+            
         });
 
 })
