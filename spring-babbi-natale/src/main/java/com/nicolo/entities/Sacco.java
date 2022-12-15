@@ -46,7 +46,7 @@ public class Sacco {
 	@Column(columnDefinition = "int default 0")
 	private int annullato; // 0 = no (default) | 1 = si
 	
-	@JsonIgnore
+	// @JsonIgnore
 	@ManyToMany(mappedBy = "sacchi", fetch = FetchType.LAZY)
 	private List<Utente> utenti;
 
