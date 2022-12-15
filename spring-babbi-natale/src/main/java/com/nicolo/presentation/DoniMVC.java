@@ -16,8 +16,9 @@ public class DoniMVC {
 		if (session.getAttribute("loggedUser") == null)
 			return "redirect:/";
 		
-		return "listaDoni";
-		
+		return "listaDoni";	
 	}
+	
+//	@postma
 	
 }
