@@ -18,7 +18,7 @@ cardNameValue();
     .then(data=>{return data.json()})
     .then(resp=>{
         resp.forEach(element => {
-            if (element.utenti.length > 1) {
+            if (element.utenti.length != 0) {
                 
                 var row = document.createElement('tr');
                 var td = document.createElement('td');
